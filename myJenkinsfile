@@ -32,7 +32,7 @@ pipeline {
       }
         }
 
-    stage('DEPLOY PARALLEL') {
+    stage('DEPLOY PARALLEL'){
       parallel {
         stage ( 'deploy 1' ){
       agent { label 'master' }
@@ -41,7 +41,6 @@ pipeline {
       }
     }
       }
-    }
     stage ( 'deploy 2' ){
       agent { label 'slave_2'}
       steps {
@@ -53,6 +52,7 @@ pipeline {
       steps {
         echo 'hey'
       }
+    }
     }
     }
       }
