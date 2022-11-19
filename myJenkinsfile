@@ -8,13 +8,13 @@ pipeline {
     }
     }
     stage ('TEST') {
-      agent {label 'slave_2'}
+      agent {label 'slave_1'}
     steps {
     echo "this is TEST stage"
     }
     }
     stage ('DEPLOY') {
-      agent {label 'slave_2'}
+      agent {label 'master'}
     steps {
     echo "this is deploy stage"
     }
