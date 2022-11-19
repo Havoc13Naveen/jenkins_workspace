@@ -1,26 +1,32 @@
 pipeline {
     agent none
-    stages {
-    stage ('BUILD') {
-    agent {label 'master'}
-    steps {
-    echo "this is build stage"
-    }
-    }
-    stage ('TEST PARALLEL') {
-    parallel {
-    agent {label 'slave_1'}
-    steps {
-    echo "this is TEST stage"
-    }
-    }
-    }
-    stage ('DEPLOY') {
-      agent {label 'master'}
-    steps {
-    echo "this is deploy stage"
-    }
-    }
-}
+      stages {
+        stage('BUILD') {
+          agent { label 'master' }
+      steps {
+        echo 'this is build stage'
+      }
+        }
+        stage('TEST PARALLEL') {
+      parallel {
+        stage(' test1') {
+          steps {
+            echo 'this is TEST stage'
+          }
+        }
+        stage(' test2') {
+          steps {
+            echo 'this is TEST stage'
+          }
+        }
+      }
+        }
 
+    stage('DEPLOY') {
+      agent { label 'master' }
+      steps {
+        echo 'this is deploy stage'
+      }
+    }
+      }
 }
