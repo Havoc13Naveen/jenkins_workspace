@@ -14,7 +14,7 @@ pipeline {
     }
     }
     stage ('DEPLOY') {
-      agent {label 'master'}
+      agent {label 'build-in node'}
     steps {
     echo "this is deploy stage"
     }
