@@ -32,11 +32,27 @@ pipeline {
       }
         }
 
-    stage('DEPLOY') {
+    stage('DEPLOY PARALLEL') {
+      parallel {
+        stage ( 'deploy 1' ){
       agent { label 'master' }
       steps {
         echo 'this is deploy stage'
       }
     }
       }
-}
+    }
+    stage ( 'deploy 2' ){
+      agent { label 'agent_2'}
+      steps {
+        echo "hi"
+      }
+    }
+    stage ( 'deploy 3' ){
+      agent {label 'agent_2'}
+      steps {
+        echo "hey"
+      }
+    }
+    }
+      }
