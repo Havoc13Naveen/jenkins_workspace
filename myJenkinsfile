@@ -7,10 +7,12 @@ pipeline {
     echo "this is build stage"
     }
     }
-    stage ('TEST') {
+    stage ('TEST PARALLEL') {
+    parallel {
       agent {label 'slave_1'}
     steps {
     echo "this is TEST stage"
+    }
     }
     }
     stage ('DEPLOY') {
