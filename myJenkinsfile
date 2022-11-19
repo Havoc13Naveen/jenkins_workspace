@@ -1,17 +1,20 @@
 pipeline {
-    agent any;
+    agent none
     stages {
     stage ('BUILD') {
+    agent {label 'slave 1'}
     steps {
     echo "this is build stage"
     }
     }
     stage ('TEST') {
+      agent {label 'slave 2'}
     steps {
     echo "this is TEST stage"
     }
     }
     stage ('DEPLOY') {
+      agent {label 'master'}
     steps {
     echo "this is deploy stage"
     }
