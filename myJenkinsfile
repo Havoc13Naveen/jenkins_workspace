@@ -43,13 +43,13 @@ pipeline {
       }
     }
     stage ( 'deploy 2' ){
-      agent { label 'agent_2'}
+      agent { label 'slave_2'}
       steps {
         echo "hi"
       }
     }
     stage ( 'deploy 3' ){
-      agent {label 'agent_2'}
+      agent {label 'slave_1'}
       steps {
         echo 'hey'
       }
