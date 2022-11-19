@@ -31,7 +31,6 @@ pipeline {
         }
       }
         }
-
     stage ('DEPLOY PARALLEL') {
       parallel {
         stage ( 'deploy 1' ){
@@ -40,7 +39,6 @@ pipeline {
         echo 'this is deploy stage'
       }
     }
-      }
     stage ( 'deploy 2' ){
       agent { label 'slave_2'}
       steps {
@@ -53,6 +51,7 @@ pipeline {
         echo 'hey'
       }
     }
+      }
     }
     }
       }
