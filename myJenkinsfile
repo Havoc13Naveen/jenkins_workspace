@@ -51,7 +51,7 @@ pipeline {
     stage ( 'deploy 3' ){
       agent {label 'agent_2'}
       steps {
-        echo "hey"
+        echo 'hey'
       }
     }
     }
