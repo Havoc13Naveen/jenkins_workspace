@@ -9,7 +9,7 @@ pipeline {
     }
     stage ('TEST PARALLEL') {
     parallel {
-      agent {label 'slave_1'}
+    agent {label 'slave_1'}
     steps {
     echo "this is TEST stage"
     }
