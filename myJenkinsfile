@@ -19,6 +19,9 @@ pipeline {
           agent { label 'slave_2' }
           steps {
             echo 'hello world'
+            sh  '''
+            echo $NAME
+            '''
           }
         }
           }
@@ -55,6 +58,9 @@ pipeline {
       agent {label 'slave_1'}
       steps {
         echo 'hey'
+        sh  '''
+            echo $NAME
+            '''
       }
     }
       }
