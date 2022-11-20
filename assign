@@ -6,6 +6,7 @@ pipeline {
           steps {
            sh '''
            /home/ubuntu/jenkins/ git clone https://github.com/Havoc13Naveen/workspace.git
+           '''
           }
         }
         stage('TEST'){
