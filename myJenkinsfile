@@ -2,6 +2,7 @@ pipeline {
     agent none
     environment {
       NAME="naveen"
+    }
       stages {
         stage('BUILD PARALLEL') {
           parallel {
@@ -60,5 +61,4 @@ pipeline {
 
         }
     }
-      }
 }
