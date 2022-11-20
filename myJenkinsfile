@@ -1,12 +1,17 @@
 pipeline {
     agent none
+    environment {
+      NAME="naveen"
       stages {
         stage('BUILD PARALLEL') {
           parallel {
             stage('build 1') {
               agent { label ' master' }
           steps {
-            echo 'this is build stage'
+            echo "$NAME"
+            '''
+            echo $NAME
+            '''
           }
             }
         stage('build 2') {
@@ -52,6 +57,8 @@ pipeline {
       }
     }
       }
-    }
+
+        }
     }
       }
+}
